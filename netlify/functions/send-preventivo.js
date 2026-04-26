@@ -199,12 +199,29 @@ async function createPdf({ nome, email, telefono, preferenza, messaggio, selecte
   const pageTop = 790;
   let y = pageTop;
 
+  const footerText = "SDAC - Scuola D'Arte Cinematografica";
+
+function drawFooter(targetPage = page) {
+  const footerSize = 8;
+  const textWidth = fontRegular.widthOfTextAtSize(footerText, footerSize);
+  const pageWidth = targetPage.getWidth();
+
+  targetPage.drawText(footerText, {
+    x: (pageWidth - textWidth) / 2,
+    y: 26,
+    size: footerSize,
+    font: fontRegular,
+    color: rgb(0.45, 0.45, 0.45)
+  });
+}
+
   function addPageIfNeeded(requiredSpace = 36) {
-    if (y - requiredSpace < marginBottom) {
-      page = pdfDoc.addPage([595.28, 841.89]);
-      y = pageTop;
-    }
+  if (y - requiredSpace < marginBottom) {
+    drawFooter(page);
+    page = pdfDoc.addPage([595.28, 841.89]);
+    y = pageTop;
   }
+}
 
   function drawTextLine(text, options = {}) {
     const {
@@ -373,7 +390,9 @@ async function createPdf({ nome, email, telefono, preferenza, messaggio, selecte
     }
   );
 
-  return pdfDoc.save();
+  drawFooter(page);
+
+return pdfDoc.save();
 }
 
 function buildCourseItemsHtml(selectedCourses) {
