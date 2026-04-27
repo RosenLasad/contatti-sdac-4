@@ -50,7 +50,7 @@ const COURSE_PATH_INFO = [
       'Dopo le 10 lezioni di Produzione, prenderà avvio la realizzazione dei cortometraggi di fine anno. A partire da maggio, gli studenti di Regia potranno girare i propri cortometraggi, con 3 giorni di ripresa e 2 giorni di montaggio per ciascun progetto.',
       'Gli studenti di Sceneggiatura, Operatore, Montaggio e degli altri corsi potranno partecipare ai set e contribuire alla produzione dei cortometraggi, mettendo in pratica le competenze acquisite durante l\'anno.',
       'Al termine della produzione, i cortometraggi verranno proiettati al cinema in una serata pubblica di fine anno e resteranno di proprietà del regista.',
-      'Un esame scritto finale permette il rilascio di un diploma di specializzazione per ogni corso scelto: il diploma è riconosciuto dal MiC e ha validità europea.',
+      'Un esame scritto finale permette il rilascio di un diploma di specializzazione, per ogni corso scelto, con valutazione.',
       'Durante l\'anno accademico la Scuola proporrà diverse proposte lavorative, grazie alla sua affiliazione con il PACC, la GLFC - Genova Liguria Film Commission e il VideoPorto.'
     ]
   }
@@ -199,7 +199,7 @@ async function createPdf({ nome, email, telefono, preferenza, messaggio, selecte
   const pageTop = 790;
   let y = pageTop;
 
-  const footerText = "SDAC - Scuola D'Arte Cinematografica";
+const footerText = "SDAC - Scuola D'Arte Cinematografica";
 
 function drawFooter(targetPage = page) {
   const footerSize = 8;
@@ -215,7 +215,7 @@ function drawFooter(targetPage = page) {
   });
 }
 
-  function addPageIfNeeded(requiredSpace = 36) {
+function addPageIfNeeded(requiredSpace = 36) {
   if (y - requiredSpace < marginBottom) {
     drawFooter(page);
     page = pdfDoc.addPage([595.28, 841.89]);
