@@ -1,13 +1,14 @@
 :root {
-  --bg: #1a1a1a;
-  --bg-soft: #212121;
-  --panel: #262626;
-  --panel-strong: #2b2b2b;
+  --bg: #333;
+  --bg-top: #222;
+  --bg-soft: #2b2b2b;
+  --panel: #3a3a3a;
+  --panel-strong: #3f3f3f;
   --text: #f3f3f3;
   --muted: #c2c2c2;
   --border: #9f1f2b;
   --border-soft: rgba(159, 31, 43, 0.55);
-  --input-border: #4a4a4a;
+  --input-border: #5a5a5a;
   --accent: #b3202a;
   --accent-hover: #951b24;
   --success: #3bb273;
@@ -40,12 +41,12 @@ img {
 }
 
 .container {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1400px, calc(100% - 1.3rem));
   margin: 0 auto;
 }
 
 .hero {
-  background: #1d1d1d;
+  background: var(--bg-top);
   color: #ffffff;
   padding: 0 0 3.1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -82,11 +83,12 @@ img {
 }
 
 .main-nav a {
+  font-family: "Lato", sans-serif;
   color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
-  font-size: 1.12rem;
-  font-weight: 600;
-  padding: 0.25rem 0;
+  font-size: 1.44rem;
+  font-weight: 400;
+  padding: 0.15rem 0;
   transition: color 0.2s ease;
 }
 
@@ -167,7 +169,7 @@ img {
   margin: 0;
   padding: 1.25rem 1.45rem;
   background: var(--panel);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 20px;
   box-shadow: var(--shadow);
 }
@@ -235,7 +237,7 @@ img {
 
 .form-card {
   background: var(--panel-strong);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 24px;
   padding: 1.4rem;
   box-shadow: var(--shadow);
@@ -406,7 +408,7 @@ textarea {
   border-top: 1px solid rgba(255, 255, 255, 0.9);
   padding: 2rem 0 2.25rem;
   margin-top: 1rem;
-  background: #1d1d1d;
+  background: var(--bg-top);
 }
 
 .footer-kicker {
